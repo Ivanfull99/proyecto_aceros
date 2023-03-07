@@ -15,5 +15,13 @@
 
             <a href="{{route('acero.index')}}">Inicio</a>
         </ul>
+        
+        <hr>
+<form action="{{ route('acero.destroy', $acero ) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button type="submit">BORRAR</button>
+
+</form>
 </body>
 </html>

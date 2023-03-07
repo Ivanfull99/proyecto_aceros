@@ -87,6 +87,7 @@ class AceroController extends Controller
      */
     public function destroy(Acero $acero)
     {
-        //
+        $acero->delete();
+        return redirect()->route('acero.index');
     }
 }

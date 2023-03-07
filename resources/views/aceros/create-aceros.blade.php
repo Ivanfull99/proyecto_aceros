@@ -13,19 +13,19 @@
      @csrf <!--para cuando se reenvia info del formulario no se duplique-->
 
     <label for="tipo_calibre">tipo de calibre</label><br>
-    <input type="number" name="tipo_calibre" id="tipo_calibre" ><br>
+    <input type="number" name="tipo_calibre" id="tipo_calibre" value="{{old('tipo_calibre')}}"><br>
     @error('tipo_calibre')
     <h2>{{$message}}</h2>
     @enderror
 
     <label for="costos">costo</label><br>
-    <input type="number" name="costos" id="costos" step="0.01" min="0"><br>
+    <input type="number" name="costos" id="costos" step="0.01" min="0" value="{{old('costos')}}"><br>
     @error('costos')
     <h2>{{$message}}</h2>
     @enderror
 
     <label for="cantidad">cantidad</label><br>
-    <input type="number" name="cantidad" id="cantidad" min="0"><br>
+    <input type="number" name="cantidad" id="cantidad" min="0" value="{{old('cantidad')}}" ><br>
     @error('cantidad')
     <h2>{{$message}}</h2>
     @enderror
