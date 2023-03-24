@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>formulario</title>
-</head>
-<body>
+<x-Plantilla>
 <h1>Aceros</h1>
 
-    <form action=" {{route('acero.update',$acero )}}" method="POST">
+    <form action=" {{route('acero.update',$m )}}" method="POST">
      @csrf <!--para cuando se reenvia info del formulario no se duplique-->
      @method('patch')  <!--para que se pueda enviar informacion-->
 
@@ -34,6 +26,4 @@
     <input type="submit" value="Enviar">
 
     </form>
-
-</body>
-</html>
+</x-Plantilla>

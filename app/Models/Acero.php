@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Acero extends Model
 {
     use HasFactory;
+    protected $fillable = ['tipo_calibre','costos','cantidad'];
 }

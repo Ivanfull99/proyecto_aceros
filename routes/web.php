@@ -22,5 +22,21 @@ Route::get('/', function () {
 // route::post("/formulario",[AcerosController::class,'store']);
 // route::get("/formulario",[AcerosController::class,'create']);
   
-route::resource('acero',AceroController::class);
+Route::resource('acero',AceroController::class)->middleware('auth');//para verificar que si tenga inicio de sesion
+Route::get('prueba', function() {
+    return view('prueba');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+
+});
+
 

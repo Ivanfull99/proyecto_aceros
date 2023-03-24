@@ -9,9 +9,12 @@ use Illuminate\Http\Response;
 
 class AceroController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+   
+   /*  public function _construct() //para verificar que si tenga inicio de sesion
+    {
+        $this->middleware('auth')->except('index','show');
+    } */
+
     public function index()
     {
         $aceros = Acero::all();
@@ -23,6 +26,8 @@ class AceroController extends Controller
      */
     public function create()
     {
+        Acero::create($request->all());
+
         return view('/aceros/create-aceros');
     }
 
@@ -67,8 +72,9 @@ class AceroController extends Controller
      */
     public function update(Request $request, Acero $acero)
     {
-        $request->validate([
-            
+        Acero::where('id',$acero->id)
+                ->update($request->except('_token','_method'));
+        /* $request->validate([
             'tipo_calibre' => ['required', 'integer' ],
             'costos' => ['required', 'numeric' ],
             'cantidad' => ['required', 'integer']
@@ -78,8 +84,8 @@ class AceroController extends Controller
         $acero->costos = $request -> costos; 
         $acero->cantidad = $request -> cantidad;
         $acero->save();
-    
-            return redirect()->route('acero.show', $acero);
+     */
+            return redirect()->route('acero.index', $acero);
     }
 
     /**
