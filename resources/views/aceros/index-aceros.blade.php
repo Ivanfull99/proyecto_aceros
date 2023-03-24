@@ -7,7 +7,7 @@
         @foreach ($aceros as $m)
             
            
-<!----------------------- update Modal HTML ---------------------->
+<!----------------------- update Modal HTML ------------clear----------->
 
 
 <div class="modal fade" id="Editar-{{$m->id}}"  >
